@@ -1,0 +1,15 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "baseUrl": ".",
+  "paths": {
+    "@routes/*": ["./src/routes/*"],
+    "@controller/*": ["./src/controller/*"],
+    "@config/*": ["./src/config/*"],
+    "@interface/*": ["./src/interface/*"],
+    "@model/*": ["./src/model/*"],
+    "@serializer/*": ["./src/serializer/*"]
+  }
+}
