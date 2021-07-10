@@ -16,6 +16,20 @@ jobs:
         with:
           node-version: '14.17.2'
           cache: 'npm'
-      - run: npm install
-      # test runs linter as well
-      - run: npm test
+      # key に完全一致するキャッシュが存在したときは true、存在しなかったときは false
+      # restore-keys でマッチングしても false
+      - uses: actions/cache@v1.0.3
+        with:
+          # キャッシュとして保存＆復元するディレクトリのパス
+          # 絶対パスか working directory からの相対パスを指定する
+          path: ~/.npm
+          # キャッシュを保存＆復元するためのキー
+          # 最大 512 文字で、それ以上の長さの文字列を渡すとエラーになるとのこと
+          key: node-${{ hashFiles('**/package-lock.json') }}
+          # キャッシュ復元時に key に完全に一致するキャッシュが存在しなかったときに使われるキーのリスト (optional)
+          restore-keys: |
+            node-
+      - name: npm ci
+        run: npm ci
+      - name: test and lint
+        run: npm test
