@@ -15,3 +15,29 @@ $ npm -v
 ```
 $ npm run dev
 ```
+
+## ディレクトリ構成
+
+```
+src/
+  - server.ts
+    - EntryPoint
+  - config/
+    - 環境変数
+  - controllers/
+    - リクエストを受ける場所
+  - interfaces/
+  - lib/
+    - サードパーティライブラリ
+  - loaders/
+    - 起動時プロセスなどをまとめておく場所
+    - server.tsで読み込む
+  - models/
+    - DBのモデル
+    - Validationとか
+  - routes/
+  - services/
+    - ビジネスロジックはここに入れる
+  - types/
+    - グローバルな型定義(d.ts)
+```
