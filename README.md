@@ -38,4 +38,6 @@ src/
   - routes/
   - services/
     - ビジネスロジックはここに入れる
+  - types/
+    - グローバルな型定義(d.ts)
 ```
